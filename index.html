@@ -2,8 +2,168 @@
 <html>
     <head>
         <title>Dugun Forms</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     </head>
     <body>
-        Hello inputless world
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-sm-offset-3">
+                    <h1>Dugun Forms</h1>
+                    <p><strong>Dugun Forms</strong> is a set of AngularJS directives which replaces your inputs.</p>
+                    <p>The aim is to make the forms easier and richer.</p>
+                    <p>
+                        GOALS
+                        <ul>
+                            <li>Generate name and id using ngModel</li>
+                            <li>Add classes related to validation state</li>
+                            <li>Form builder??</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+                <hr>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3">
+                    <ul>
+                        <li>
+                            <a href="#dgFormText">Text</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormTextArea">Textarea</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormSelect2">Select</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormSelect2Multiple">Multi Select</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormBoolean">Boolean (buttons)</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormBooleanSelect">Boolean (select)</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormCheckbox">Checkbox (single)</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormCheckboxMultiple">Checkbox (multiple)</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormRadio">Radio</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormDate">Date</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormDateRange">Date Range</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormTime">Time</a>
+                        </li>
+                        <li>
+                            <a href="#dgFormDateTime">Date Time</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-12 col-sm-9">
+                    <div>
+                        <h3 id="dgFormText">dgFormText</h3>
+                        <p>Generic input for text.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormTextArea">dgFormTextArea</h3>
+                        <p>Textarea.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormSelect2">dgFormSelect2</h3>
+                        <p>Dropdown using <em>ui-select</em>.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormSelect2Multiple">dgFormSelect2Multiple</h3>
+                        <p>Dropdown with multiple select using <em>ui-select</em>.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormBoolean">dgFormBoolean</h3>
+                        <p>Boolean input using <em>ui-bootstrap</em> button groups.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormBooleanSelect">dgFormBooleanSelect</h3>
+                        <p>Boolean select using <a href="#dgFormSelect2"><em>dgFormSelect2</em></a>.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormCheckbox">dgFormCheckbox</h3>
+                        <p>Single checkbox.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormCheckboxMultiple">dgFormCheckboxMultiple</h3>
+                        <p>Multiple checkboxes that stores values in an array.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormRadio">dgFormRadio</h3>
+                        <p>Multiple radio buttons.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormDate">dgFormDate</h3>
+                        <p>Datepicker using <em>ui-bootstrap</em> datepicker. Stores the value as string in <em>YYYY-MM-DD</em> format.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormDateRange">dgFormDateRange</h3>
+                        <p>Daterangepicker using <em>angular-daterangepicker</em> project.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormTime">dgFormTime</h3>
+                        <p>Timepicker using <em>angular-jquery-timepicker</em> project. Stores the selected time in <em>HH:MM</em> format.</p>
+                    </div>
+
+                    <hr>
+
+                    <div>
+                        <h3 id="dgFormDateTime">dgFormDateTime</h3>
+                        <p>
+                            Datetime picker using <a href="#dgFormDate"><em>dgFormDate</em></a> and <a href="#dgFormTime"><em>dgFormTime</em></a>. Stores the datetime in <em>YYYY-MM-DD HH:MM</em> format to work well with <em>MySQL / MariaDB</em>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </body>
 </html>
