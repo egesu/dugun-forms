@@ -4,6 +4,9 @@
         <title>Dugun Forms</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="container-fluid">
@@ -20,12 +23,19 @@
                             <li>Form builder??</li>
                         </ul>
                     </p>
+
+                    <h3>Installation</h3>
+                    <p>Using bower, run:</p>
+                    <p><code>bower install --save dugun-forms</code></p>
+                    <p>Then include the module in your dependencies:</p>
+                    <p><code>angular.module('myApp', ['dugun.forms']);</code></p>
+                    <p>Now you can start using the directives!</p>
                 </div>
             </div>
-                <hr>
+            <hr>
             <div class="row">
                 <div class="col-xs-12 col-sm-3">
-                    <ul>
+                    <ul style="position: fixed; top: 40px;">
                         <li>
                             <a href="#dgFormText">Text</a>
                         </li>
@@ -142,6 +152,95 @@
                     <div>
                         <h3 id="dgFormDateRange">dgFormDateRange</h3>
                         <p>Daterangepicker using <em>angular-daterangepicker</em> project.</p>
+                        <table class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Type</th>
+                                    <th>Required?</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>ngModelStart</th>
+                                    <td>String (YYYY-MM-DD format)</td>
+                                    <td>Yes</td>
+                                    <td>Model to store start date of range</td>
+                                </tr>
+                                <tr>
+                                    <th>ngModelEnd</th>
+                                    <td>String (YYYY-MM-DD format)</td>
+                                    <td>Yes</td>
+                                    <td>Model to store end date of range</td>
+                                </tr>
+                                <tr>
+                                    <th>min</th>
+                                    <td>Date</td>
+                                    <td>No</td>
+                                    <td>Minimum date value that user can select</td>
+                                </tr>
+                                <tr>
+                                    <th>max</th>
+                                    <td>Date</td>
+                                    <td>No</td>
+                                    <td>Maximum date value that user can select</td>
+                                </tr>
+                                <tr>
+                                    <th>options</th>
+                                    <td>Object</td>
+                                    <td>No</td>
+                                    <td>An object that contains daterangepicker options <a href="http://www.daterangepicker.com/#options" target="_blank">See full list</a></td>
+                                </tr>
+                                <tr>
+                                    <th>clearable</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>If the user can clear the selection</td>
+                                </tr>
+                                <tr>
+                                    <th>ngRequired</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>Add required attribute to input element</td>
+                                </tr>
+                                <tr>
+                                    <th>dgId</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Id for input element</td>
+                                </tr>
+                                <tr>
+                                    <th>dgName</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Name for input element</td>
+                                </tr>
+                                <tr>
+                                    <th>form</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Form attribute for input element</td>
+                                </tr>
+                                <tr>
+                                    <th>placeholder</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Placeholder</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p><strong>Example</strong></p>
+                        <p><samp><code id="dgFormDateRangeExample" data-lang="html">
+                            <script>
+                                $('#dgFormDateRangeExample').text(' \
+                                    <dg-form-date-range \
+                                        ng-model-start="data.dateStart" \
+                                        ng-model-end="data.dateEnd"\
+                                    ></dg-form-date-range> \
+                                ');
+                            </script>
+                        </code></samp></p>
                     </div>
 
                     <hr>
@@ -162,8 +261,5 @@
                 </div>
             </div>
         </div>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </body>
 </html>
