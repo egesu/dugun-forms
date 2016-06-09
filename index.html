@@ -82,6 +82,132 @@
                     <div>
                         <h3 id="dgFormText">dgFormText</h3>
                         <p>Generic input for text.</p>
+                        <table class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Type</th>
+                                    <th>Required?</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>ngModel</th>
+                                    <td>string or number (depends on type)</td>
+                                    <td>Yes</td>
+                                    <td>Model to store value</td>
+                                </tr>
+                                <tr>
+                                    <th>ngModelOptions</th>
+                                    <td>Object</td>
+                                    <td>No</td>
+                                    <td>Model options <a href="https://docs.angularjs.org/api/ng/directive/ngModelOptions" target="_blank">see documentation</a></td>
+                                </tr>
+                                <tr>
+                                    <th>ngRequired</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>True if required, false otherwise</td>
+                                </tr>
+                                <tr>
+                                    <th>ngDisabled</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>True if disabled, false otherwise</td>
+                                </tr>
+                                <tr>
+                                    <th>maxlength</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>If entered, there will be an incicator on right that shows characters left. To disable this feature, see <code>disableLength</code> attribute</td>
+                                </tr>
+                                <tr>
+                                    <th>disableLength</th>
+                                    <td>boolean</td>
+                                    <td>No</td>
+                                    <td>If true, disables left characters incicator</td>
+                                </tr>
+                                <tr>
+                                    <th>clearable</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>If the user can clear the selection</td>
+                                </tr>
+                                <tr>
+                                    <th>type</th>
+                                    <td>String</td>
+                                    <td>No (default: 'text')</td>
+                                    <td>Set the type of input. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-type" target="_blank">see available types</a></td>
+                                </tr>
+                                <tr>
+                                    <th>dgId</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Id for input element</td>
+                                </tr>
+                                <tr>
+                                    <th>dgName</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Name for input element</td>
+                                </tr>
+                                <tr>
+                                    <th>mask</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>You can define a mask for input using <a href="https://htmlpreview.github.io/?https://github.com/angular-ui/ui-mask/master/demo/index.html" target="_blank">ui-mask</a></td>
+                                </tr>
+                                <tr>
+                                    <th>numberOnly</th>
+                                    <td>boolean</td>
+                                    <td>No</td>
+                                    <td>If true, user can enter only number in input</td>
+                                </tr>
+                                <tr>
+                                    <th>readonly</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>Whether this input is readonly</td>
+                                </tr>
+                                <tr>
+                                    <th>form</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>If entered, the input will belong to the form with given id</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>There are many available attributes for input, some are not included here. You can check <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#Attributes" target="_blank">MDN</a> for all. <em>dgFormText</em> supports most of them.</p>
+
+                        <p><strong>Example (Number)</strong></p>
+                        <p><samp><code id="dgFormTextExample1" data-lang="html">
+                            <script>
+                                $('#dgFormTextExample1').text(' \
+                                    <dg-form-text \
+                                        ng-model="data.price" \
+                                        type="number" \
+                                        min="0.01" \
+                                        max="3" \
+                                        step="0.01" \
+                                        number-only="true" \
+                                    ></dg-form-text> \
+                                ');
+                            </script>
+                        </code></samp></p>
+
+                        <p><strong>Example (Text)</strong></p>
+                        <p><samp><code id="dgFormTextExample2" data-lang="html">
+                            <script>
+                                $('#dgFormTextExample2').text(' \
+                                    <dg-form-text \
+                                        ng-model="data.name" \
+                                        ng-required="true" \
+                                    ></dg-form-text> \
+                                ');
+                            </script>
+                        </code></samp></p>
                     </div>
 
                     <hr>
@@ -89,20 +215,239 @@
                     <div>
                         <h3 id="dgFormTextArea">dgFormTextArea</h3>
                         <p>Textarea.</p>
+
+                        <table class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Type</th>
+                                    <th>Required?</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>ngModel</th>
+                                    <td>string or number (depends on type)</td>
+                                    <td>Yes</td>
+                                    <td>Model to store value</td>
+                                </tr>
+                                <tr>
+                                    <th>ngRequired</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>True if required, false otherwise</td>
+                                </tr>
+                                <tr>
+                                    <th>ngDisabled</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>True if disabled, false otherwise</td>
+                                </tr>
+                                <tr>
+                                    <th>maxlength</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Maximum length of text</td>
+                                </tr>
+                                <tr>
+                                    <th>dgId</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Id for input element</td>
+                                </tr>
+                                <tr>
+                                    <th>dgName</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Name for input element</td>
+                                </tr>
+                                <tr>
+                                    <th>placeholder</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Placeholder</td>
+                                </tr>
+                                <tr>
+                                    <th>cols</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Columns of textarea</td>
+                                </tr>
+                                <tr>
+                                    <th>rows</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Columns of textarea</td>
+                                </tr>
+                                <tr>
+                                    <th>form</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>If entered, the input will belong to the form with given id. Useful when you need nested forms</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <hr>
 
                     <div>
                         <h3 id="dgFormSelect2">dgFormSelect2</h3>
-                        <p>Dropdown using <em>ui-select</em>.</p>
+                        <p>Dropdown using <a href="https://github.com/angular-ui/ui-select" target="_blank">ui-select</a>.</p>
+
+                        <table class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Type</th>
+                                    <th>Required?</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>ngModel</th>
+                                    <td>string or number (depends on type)</td>
+                                    <td>Yes</td>
+                                    <td>Model to store value</td>
+                                </tr>
+                                <tr>
+                                    <th>options</th>
+                                    <td>Array</td>
+                                    <td>Yes</td>
+                                    <td>An array of objects. Each option should represent a choice. By default, you can use <code>id</code> for your value and <code>name</code> for the label. You can change these keys with <strong>idKey</strong> and <strong>valueKey</strong></td>
+                                </tr>
+                                <tr>
+                                    <th>idKey</th>
+                                    <td>string</td>
+                                    <td>No (default: 'id')</td>
+                                    <td>In which property of your object your value is stored</td>
+                                </tr>
+                                <tr>
+                                    <th>valueKey</th>
+                                    <td>string</td>
+                                    <td>No (default: 'name')</td>
+                                    <td>In which property of your object your label is stored</td>
+                                </tr>
+                                <tr>
+                                    <th>ngRequired</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>True if required, false otherwise</td>
+                                </tr>
+                                <tr>
+                                    <th>ngDisabled</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>True if disabled, false otherwise</td>
+                                </tr>
+                                <tr>
+                                    <th>allowClear</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>If you will allow the user to clear selected value, set this to true</td>
+                                </tr>
+                                <tr>
+                                    <th>placeholder</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Placeholder</td>
+                                </tr>
+                                <tr>
+                                    <th>searchEnabled</th>
+                                    <td>boolean</td>
+                                    <td>No (default: true)</td>
+                                    <td>If you need to disable search feature, set this to false</td>
+                                </tr>
+                                <tr>
+                                    <th>form</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>If entered, the input will belong to the form with given id. Useful when you need nested forms</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <hr>
 
                     <div>
                         <h3 id="dgFormSelect2Multiple">dgFormSelect2Multiple</h3>
-                        <p>Dropdown with multiple select using <em>ui-select</em>.</p>
+                        <p>Dropdown with multiple select using <a href="https://github.com/angular-ui/ui-select" target="_blank">ui-select</a>.</p>
+
+                        <table class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Type</th>
+                                    <th>Required?</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>ngModel</th>
+                                    <td>string or number (depends on type)</td>
+                                    <td>Yes</td>
+                                    <td>Model to store value</td>
+                                </tr>
+                                <tr>
+                                    <th>options</th>
+                                    <td>Array</td>
+                                    <td>Yes</td>
+                                    <td>An array of objects. Each option should represent a choice. By default, you can use <code>id</code> for your value and <code>name</code> for the label. You can change these keys with <strong>idKey</strong> and <strong>valueKey</strong></td>
+                                </tr>
+                                <tr>
+                                    <th>idKey</th>
+                                    <td>string</td>
+                                    <td>No (default: 'id')</td>
+                                    <td>In which property of your object your value is stored</td>
+                                </tr>
+                                <tr>
+                                    <th>valueKey</th>
+                                    <td>string</td>
+                                    <td>No (default: 'name')</td>
+                                    <td>In which property of your object your label is stored</td>
+                                </tr>
+                                <tr>
+                                    <th>ngRequired</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>True if required, false otherwise</td>
+                                </tr>
+                                <tr>
+                                    <th>ngDisabled</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>True if disabled, false otherwise</td>
+                                </tr>
+                                <tr>
+                                    <th>allowClear</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>If you will allow the user to clear selected value, set this to true</td>
+                                </tr>
+                                <tr>
+                                    <th>placeholder</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Placeholder</td>
+                                </tr>
+                                <tr>
+                                    <th>searchEnabled</th>
+                                    <td>boolean</td>
+                                    <td>No (default: true)</td>
+                                    <td>If you need to disable search feature, set this to false</td>
+                                </tr>
+                                <tr>
+                                    <th>form</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>If entered, the input will belong to the form with given id. Useful when you need nested forms</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <hr>
@@ -151,7 +496,7 @@
 
                     <div>
                         <h3 id="dgFormDateRange">dgFormDateRange</h3>
-                        <p>Daterangepicker using <em>angular-daterangepicker</em> project.</p>
+                        <p>Daterangepicker using <em>angular-daterangepicker</em> project. It stores model values as string in <em>YYYY-MM-DD</em> format. The format is not changable at the moment.</p>
                         <table class="table table-hovered">
                             <thead>
                                 <tr>
