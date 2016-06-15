@@ -141,6 +141,12 @@
                                     <td>Set the type of input. <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-type" target="_blank">see available types</a></td>
                                 </tr>
                                 <tr>
+                                    <th>addonRight</th>
+                                    <td>String</td>
+                                    <td>No</td>
+                                    <td>If exists, adds an addon to right. <a href="https://getbootstrap.com/css/#forms-inline" target="_blank">See example</a></td>
+                                </tr>
+                                <tr>
                                     <th>dgId</th>
                                     <td>string</td>
                                     <td>No</td>
@@ -454,7 +460,46 @@
 
                     <div>
                         <h3 id="dgFormBoolean">dgFormBoolean</h3>
-                        <p>Boolean input using <em>ui-bootstrap</em> button groups.</p>
+                        <p>Boolean input using <a href="https://angular-ui.github.io/bootstrap/#/buttons" target="_blank">ui-bootstrap button groups</a>.</p>
+
+                        <p>As this element is not a real input in the form, there is no validation for it. So use it carefully. (Example: set a default value on start, then do not allow user to clear.)</p>
+
+                        <table class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Type</th>
+                                    <th>Required?</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>ngModel</th>
+                                    <td>boolean</td>
+                                    <td>Yes</td>
+                                    <td>Model to store value</td>
+                                </tr>
+                                <tr>
+                                    <th>allowClear</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>If true, user can erase the selected value</td>
+                                </tr>
+                                <tr>
+                                    <th>labelTrue</th>
+                                    <td>string</td>
+                                    <td>Yes</td>
+                                    <td>Label for "yes"</td>
+                                </tr>
+                                <tr>
+                                    <th>labelFalse</th>
+                                    <td>string</td>
+                                    <td>Yes</td>
+                                    <td>Label for "no"</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <hr>
@@ -462,6 +507,61 @@
                     <div>
                         <h3 id="dgFormBooleanSelect">dgFormBooleanSelect</h3>
                         <p>Boolean select using <a href="#dgFormSelect2"><em>dgFormSelect2</em></a>.</p>
+
+                        <table class="table table-hovered">
+                            <thead>
+                                <tr>
+                                    <th>Attribute</th>
+                                    <th>Type</th>
+                                    <th>Required?</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>ngModel</th>
+                                    <td>boolean</td>
+                                    <td>Yes</td>
+                                    <td>Model to store value</td>
+                                </tr>
+                                <tr>
+                                    <th>allowClear</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>If true, user can erase the selected value</td>
+                                </tr>
+                                <tr>
+                                    <th>labelTrue</th>
+                                    <td>string</td>
+                                    <td>Yes</td>
+                                    <td>Label for "yes"</td>
+                                </tr>
+                                <tr>
+                                    <th>labelFalse</th>
+                                    <td>string</td>
+                                    <td>Yes</td>
+                                    <td>Label for "no"</td>
+                                </tr>
+                                <tr>
+                                    <th>valueTrue</th>
+                                    <td><em>any</em></td>
+                                    <td>No (default: true)</td>
+                                    <td>Value for "yes"</td>
+                                </tr>
+                                <tr>
+                                    <th>ngRequired</th>
+                                    <td>boolean</td>
+                                    <td>No (default: false)</td>
+                                    <td>Set to true if required</td>
+                                </tr>
+                                <tr>
+                                    <th>placeholder</th>
+                                    <td>string</td>
+                                    <td>No</td>
+                                    <td>Placeholder</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
                     <hr>
