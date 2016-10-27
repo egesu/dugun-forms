@@ -1,5 +1,130 @@
 /**
  * @ngdoc overview
+ * @memberof dugun.forms.helpers.uiSelectRequired
+ * @description
+ * description
+ */
+angular.module('dugun.forms.helpers.uiSelectRequired', []);
+
+function UISelectRequiredDirective() {
+    return {
+        require: 'ngModel',
+        link: function (scope, element, attrs, ngModel) {
+            var selectElement = $('<select class="hidden-select"></select>')
+                .prop('required', true);
+            if(attrs.form) {
+                selectElement.attr('form', attrs.form);
+            }
+
+            scope.$watch(function () {
+                return ngModel.$modelValue;
+            }, function (newValue) {
+                if(typeof newValue !== 'undefined' && newValue !== null) {
+                    selectElement.append('<option value="'+ newValue +'"></option>')
+                        .find('option:last-child')
+                        .prop('selected', true);
+                } else {
+                    selectElement.find('option').remove();
+                }
+            });
+
+            // Remove the hidden select if required is false
+            scope.$watch(function() {
+                return attrs.uiSelectRequired;
+            }, function(newValue) {
+                if(newValue === 'true') {
+                    $(element).after(selectElement);
+                } else {
+                    $(selectElement).remove();
+                }
+            });
+        }
+    };
+}
+
+angular.module('dugun.forms.helpers.uiSelectRequired')
+    .directive('uiSelectRequired', UISelectRequiredDirective);
+
+/**
+ * @ngdoc overview
+ * @memberof dugun.forms.helpers.propsFilter
+ * @description
+ * Property filter
+ */
+angular.module('dugun.forms.helpers.propsFilter', []);
+
+angular.module('dugun.forms.helpers.propsFilter')
+    .filter('props', function() {
+        return function(items, id, value) {
+            var out = [],
+                props = {};
+
+            props[id] = value;
+
+            if(angular.isArray(items)) {
+                items.forEach(function(item) {
+                    var itemMatches = false;
+
+                    var keys = Object.keys(props);
+                    for (var i = 0; i < keys.length; i++) {
+                        var prop = keys[i];
+                        var text = props[prop].toLowerCase();
+                        if(typeof item === 'undefined' || typeof item[prop] === 'undefined') {
+                            itemMatches = false;
+                            break;
+                        }
+                        if (item[prop].toString().toLowerCase().indexOf(text) !== -1) {
+                            itemMatches = true;
+                            break;
+                        }
+                    }
+
+                    if (itemMatches) {
+                        out.push(item);
+                    }
+                });
+            } else {
+                // Let the output be the input untouched
+                out = items;
+            }
+
+            return out;
+        };
+    });
+
+/**
+ * @ngdoc overview
+ * @memberof dugun.forms.helpers.numberOnly
+ * @description
+ * description
+ */
+angular.module('dugun.forms.helpers.numberOnly', []);
+
+// Source from: http://stackoverflow.com/questions/19036443/angularjs-how-to-allow-only-a-number-digits-and-decimal-point-to-be-typed-in
+// Author: Nishchit Dhanani
+// Written on: 2013-11-14
+function NumberOnlyDirective($window) {
+    return {
+        require: 'ngModel',
+        link: function(scope, element, attrs, modelCtrl) {
+            if(attrs.numberOnly === 'true') {
+                modelCtrl.$formatters.push(function (inputValue) {
+                    return $window.parseFloat(inputValue);
+                });
+            }
+        }
+    };
+}
+
+NumberOnlyDirective.$inject = [
+    '$window',
+];
+
+angular.module('dugun.forms.helpers.numberOnly')
+    .directive('numberOnly', NumberOnlyDirective);
+
+/**
+ * @ngdoc overview
  * @memberof dugun.forms
  * @description
  * Form elements from directives
@@ -599,131 +724,6 @@ function DgFormBooleanSelect() {
 
 angular.module('dugun.forms')
     .directive('dgFormBooleanSelect', DgFormBooleanSelect);
-
-/**
- * @ngdoc overview
- * @memberof dugun.forms.helpers.propsFilter
- * @description
- * Property filter
- */
-angular.module('dugun.forms.helpers.propsFilter', []);
-
-angular.module('dugun.forms.helpers.propsFilter')
-    .filter('props', function() {
-        return function(items, id, value) {
-            var out = [],
-                props = {};
-
-            props[id] = value;
-
-            if(angular.isArray(items)) {
-                items.forEach(function(item) {
-                    var itemMatches = false;
-
-                    var keys = Object.keys(props);
-                    for (var i = 0; i < keys.length; i++) {
-                        var prop = keys[i];
-                        var text = props[prop].toLowerCase();
-                        if(typeof item === 'undefined' || typeof item[prop] === 'undefined') {
-                            itemMatches = false;
-                            break;
-                        }
-                        if (item[prop].toString().toLowerCase().indexOf(text) !== -1) {
-                            itemMatches = true;
-                            break;
-                        }
-                    }
-
-                    if (itemMatches) {
-                        out.push(item);
-                    }
-                });
-            } else {
-                // Let the output be the input untouched
-                out = items;
-            }
-
-            return out;
-        };
-    });
-
-/**
- * @ngdoc overview
- * @memberof dugun.forms.helpers.uiSelectRequired
- * @description
- * description
- */
-angular.module('dugun.forms.helpers.uiSelectRequired', []);
-
-function UISelectRequiredDirective() {
-    return {
-        require: 'ngModel',
-        link: function (scope, element, attrs, ngModel) {
-            var selectElement = $('<select class="hidden-select"></select>')
-                .prop('required', true);
-            if(attrs.form) {
-                selectElement.attr('form', attrs.form);
-            }
-
-            scope.$watch(function () {
-                return ngModel.$modelValue;
-            }, function (newValue) {
-                if(typeof newValue !== 'undefined' && newValue !== null) {
-                    selectElement.append('<option value="'+ newValue +'"></option>')
-                        .find('option:last-child')
-                        .prop('selected', true);
-                } else {
-                    selectElement.find('option').remove();
-                }
-            });
-
-            // Remove the hidden select if required is false
-            scope.$watch(function() {
-                return attrs.uiSelectRequired;
-            }, function(newValue) {
-                if(newValue === 'true') {
-                    $(element).after(selectElement);
-                } else {
-                    $(selectElement).remove();
-                }
-            });
-        }
-    };
-}
-
-angular.module('dugun.forms.helpers.uiSelectRequired')
-    .directive('uiSelectRequired', UISelectRequiredDirective);
-
-/**
- * @ngdoc overview
- * @memberof dugun.forms.helpers.numberOnly
- * @description
- * description
- */
-angular.module('dugun.forms.helpers.numberOnly', []);
-
-// Source from: http://stackoverflow.com/questions/19036443/angularjs-how-to-allow-only-a-number-digits-and-decimal-point-to-be-typed-in
-// Author: Nishchit Dhanani
-// Written on: 2013-11-14
-function NumberOnlyDirective($window) {
-    return {
-        require: 'ngModel',
-        link: function(scope, element, attrs, modelCtrl) {
-            if(attrs.numberOnly === 'true') {
-                modelCtrl.$formatters.push(function (inputValue) {
-                    return $window.parseFloat(inputValue);
-                });
-            }
-        }
-    };
-}
-
-NumberOnlyDirective.$inject = [
-    '$window',
-];
-
-angular.module('dugun.forms.helpers.numberOnly')
-    .directive('numberOnly', NumberOnlyDirective);
 
 /**
  * @ngdoc overview
