@@ -4,7 +4,7 @@
     ng-if="(!maxlength || disableLength()) && !addonRight"
     ng-model="$parent.model"
     ng-required="required"
-    ui-mask="{{ mask || '' }}"
+    mask="{{ mask || '' }}"
     ng-attr-min="{{ attrs.min || undefined }}"
     ng-attr-max="{{ attrs.max || undefined }}"
     ng-attr-step="{{ attrs.step || undefined }}"

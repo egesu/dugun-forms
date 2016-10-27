@@ -14,4 +14,5 @@ angular.module('dugun.forms', [
     'angularMoment',
     'ui.timepicker',
     'dugun.forms.helpers',
+    'ngMask',
 ]);
